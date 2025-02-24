@@ -21,6 +21,9 @@ const employeeRoute = require("./routes/employeeRoutes");
 const userProfileRoutes = require("./routes/profileRoute");
 const documentRRoute = require("./routes/documentRRoutes");
 const documentSRoute = require("./routes/documentSRoute");
+//
+const albumRoute = require("./routes/albumRoutes");
+const quorumRoute = require("./routes/quorumRoutes");
 
 const PORT = process.env.PORT || 8080;
 const app = express();
@@ -46,6 +49,9 @@ app.use("/allocation",leaveAllocationRoute);
 app.use("/leaveType",levaeTypeRoute);
 app.use("/api", documentRRoute);
 app.use("/api", documentSRoute);
+//
+app.use("/fetch", albumRoute);
+app.use("/quorum",quorumRoute);
 
 app.listen(PORT, () => {
   console.log(`server has started at port ${PORT}`);
